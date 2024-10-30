@@ -19,11 +19,15 @@ const VIDEOS = {
 export const App = () => {
   const [src, setSrc] = useState(VIDEOS.fast);
 
+  const onSelectVideoHandler = (newVideo) => {
+    setSrc(VIDEOS[newVideo]);
+  }
+
 	return (
       <div>
         <h1>Video Player</h1>
-        <Menu />
-        <Video />
+        <Menu onSelectVideo={onSelectVideoHandler} />
+        <Video src={src} />
       </div>
     );
 }
